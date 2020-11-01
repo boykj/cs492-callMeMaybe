@@ -6,6 +6,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter/services.dart';
 
 void main() => runApp(MyApp());
 
@@ -124,8 +126,9 @@ class _BusinessCardState extends State<BusinessCard> {
             Text('541-867-5309',
                 style: TextStyle(
                     fontSize: 12, height: 2, fontWeight: FontWeight.bold)),
-            Text('github.com/boykj        boykj@oregonstate.edu',
-                style: TextStyle(fontSize: 9.5, height: 2)),
+            FlatButton(
+                child: new Text('github.com/boykj'),
+                onPressed: () => launch('https://google.com')),
           ],
         ),
       ),
@@ -140,7 +143,7 @@ class _BusinessCardState extends State<BusinessCard> {
 
 class RandomResponseGenerator extends StatefulWidget {
   @override
-  _RandomResponseState createState() => _RandomResponseState();
+  _RandomResponseState createState() => new _RandomResponseState();
 }
 
 class _RandomResponseState extends State<RandomResponseGenerator> {
@@ -152,13 +155,12 @@ class _RandomResponseState extends State<RandomResponseGenerator> {
     'Probably not',
     'Nah'
   ];
+  String answerText = '';
 
   void echoWords() {
-    var random = new Random();
-    print(random.nextInt(randomWords.length));
-    print(randomWords[random.nextInt(randomWords.length)]);
-    randomWords.forEach((words) {
-      Text(words);
+    setState(() {
+      var random = new Random();
+      answerText = (randomWords[random.nextInt(randomWords.length)]);
     });
   }
 
@@ -172,10 +174,10 @@ class _RandomResponseState extends State<RandomResponseGenerator> {
               Text('Tap here for an answer',
                   style: Theme.of(context).textTheme.headline6),
               FlatButton(
-                  child: Text('Call me Maybe?'),
+                  child: Text('Click me for an answer'),
                   color: Colors.blueAccent,
-                  onPressed: echoWords),
-              Text('$randomWords')
+                  onPressed: () => {echoWords()}),
+              Text('Response: ' + '$answerText')
             ]),
       ),
     );
