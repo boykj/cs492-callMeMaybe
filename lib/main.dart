@@ -78,9 +78,12 @@ class MyStatelessWidget extends StatelessWidget {
   }
 }
 
-class BusinessCard extends StatelessWidget {
-  const BusinessCard({Key key}) : super(key: key);
+class BusinessCard extends StatefulWidget {
+  @override
+  _BusinessCardState createState() => _BusinessCardState();
+}
 
+class _BusinessCardState extends State<BusinessCard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
