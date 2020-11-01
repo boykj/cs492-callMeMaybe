@@ -66,7 +66,11 @@ class MyStatelessWidget extends StatelessWidget {
             ),
           ),
           body: TabBarView(
-            children: [BusinessCard(), Text('Tab 2'), Text('Tab 3')],
+            children: [
+              BusinessCard(),
+              Text('Tab 2'),
+              RandomResponseGenerator()
+            ],
           ),
         );
       }),
@@ -121,6 +125,35 @@ class BusinessCard extends StatelessWidget {
       //  tooltip: 'Increment',
       //  child: Icon(Icons.add),
       //), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+class RandomResponseGenerator extends StatefulWidget {
+  @override
+  _RandomResponseState createState() => _RandomResponseState();
+}
+
+class _RandomResponseState extends State<RandomResponseGenerator> {
+  @override
+  Widget build(BuildContext context) {
+    theme:
+    ThemeData(
+        fontFamily: 'Georgia',
+        textTheme: TextTheme(
+            headline6: TextStyle(
+                fontSize: 20, fontWeight: FontWeight.bold, height: 2)));
+    return Scaffold(
+      body: Center(
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text('Call me maybe?',
+                  style: Theme.of(context).textTheme.headline6),
+              Text('Placeholder here'),
+              Text('Sample text stuff')
+            ]),
+      ),
     );
   }
 }
