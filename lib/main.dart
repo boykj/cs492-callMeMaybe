@@ -2,9 +2,9 @@
 
 // This example shows how to listen to page updates in [TabBar] and [TabBarView]
 // when using [DefaultTabController].
+import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:english_words/english_words.dart';
 import 'package:flutter/rendering.dart';
 
 void main() => runApp(MyApp());
@@ -144,6 +144,24 @@ class RandomResponseGenerator extends StatefulWidget {
 }
 
 class _RandomResponseState extends State<RandomResponseGenerator> {
+  final List randomWords = [
+    'Definitely',
+    'Possibly',
+    'Perhaps',
+    'Unlikely',
+    'Probably not',
+    'Nah'
+  ];
+
+  void echoWords() {
+    var random = new Random();
+    print(random.nextInt(randomWords.length));
+    print(randomWords[random.nextInt(randomWords.length)]);
+    randomWords.forEach((words) {
+      Text(words);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -151,11 +169,13 @@ class _RandomResponseState extends State<RandomResponseGenerator> {
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text('Call me maybe?',
+              Text('Tap here for an answer',
                   style: Theme.of(context).textTheme.headline6),
-              Text('Placeholder button here'),
-              Text('Sample text stuff',
-                  style: Theme.of(context).textTheme.headline6)
+              FlatButton(
+                  child: Text('Call me Maybe?'),
+                  color: Colors.blueAccent,
+                  onPressed: echoWords),
+              Text('$randomWords')
             ]),
       ),
     );
