@@ -17,8 +17,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         theme: ThemeData(
-          primaryColor: Colors.blueGrey,
-        ),
+            primaryColor: Colors.blueGrey,
+            textTheme: TextTheme(
+                headline5: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Arial'),
+                headline6: TextStyle(
+                    fontSize: 24, fontWeight: FontWeight.bold, height: 3))),
         home: MyStatelessWidget());
   }
 }
@@ -55,7 +61,7 @@ class MyStatelessWidget extends StatelessWidget {
         });
         return Scaffold(
           appBar: AppBar(
-            title: Text('Hello worlds', textAlign: TextAlign.right),
+            title: Text('Hello worlds', textAlign: TextAlign.center),
             bottom: TabBar(
               indicatorColor: Colors.black,
               tabs: [
@@ -140,12 +146,6 @@ class RandomResponseGenerator extends StatefulWidget {
 class _RandomResponseState extends State<RandomResponseGenerator> {
   @override
   Widget build(BuildContext context) {
-    theme:
-    ThemeData(
-        fontFamily: 'Georgia',
-        textTheme: TextTheme(
-            headline6: TextStyle(
-                fontSize: 20, fontWeight: FontWeight.bold, height: 2)));
     return Scaffold(
       body: Center(
         child: Column(
@@ -153,8 +153,9 @@ class _RandomResponseState extends State<RandomResponseGenerator> {
             children: <Widget>[
               Text('Call me maybe?',
                   style: Theme.of(context).textTheme.headline6),
-              Text('Placeholder here'),
-              Text('Sample text stuff')
+              Text('Placeholder button here'),
+              Text('Sample text stuff',
+                  style: Theme.of(context).textTheme.headline6)
             ]),
       ),
     );
