@@ -147,19 +147,19 @@ class RandomResponseGenerator extends StatefulWidget {
 }
 
 class _RandomResponseState extends State<RandomResponseGenerator> {
+  String answerText = 'Hello there';
   final List randomWords = [
     'Definitely',
     'Possibly',
     'Perhaps',
     'Unlikely',
     'Probably not',
-    'Nah'
+    'Ehhh....'
   ];
-  String answerText = '';
 
-  void echoWords() {
+  void _echoWords() {
     setState(() {
-      var random = new Random();
+      var random = Random();
       answerText = (randomWords[random.nextInt(randomWords.length)]);
     });
   }
@@ -171,13 +171,13 @@ class _RandomResponseState extends State<RandomResponseGenerator> {
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text('Tap here for an answer',
+              Text('Call me, maybe?',
                   style: Theme.of(context).textTheme.headline6),
-              FlatButton(
+              RaisedButton(
                   child: Text('Click me for an answer'),
-                  color: Colors.blueAccent,
-                  onPressed: () => {echoWords()}),
-              Text('Response: ' + '$answerText')
+                  color: Colors.blue[200],
+                  onPressed: () => {_echoWords()}),
+              Text('$answerText', style: Theme.of(context).textTheme.headline6)
             ]),
       ),
     );
