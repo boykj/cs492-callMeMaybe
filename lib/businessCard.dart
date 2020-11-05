@@ -14,7 +14,7 @@ class _BusinessCardState extends State<BusinessCard> {
   @override
   Widget build(BuildContext context) {
     final String phone = '541-604-6275';
-
+    final String email = 'boykj@oregonstateu.edu';
     return Scaffold(
       body: Center(
         child: Column(
@@ -34,8 +34,7 @@ class _BusinessCardState extends State<BusinessCard> {
                   child: Text('github.com/boykj'),
                   onPressed: () => launch('https://github.com/boykj')),
               FlatButton(
-                  child: Text('boykj@oregonstate.edu'),
-                  onPressed: () => launch('https://gmail.com'))
+                  child: Text(email), onPressed: () => launch("mailto:$email"))
             ]),
           ],
         ),
