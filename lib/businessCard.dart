@@ -1,3 +1,6 @@
+//import 'dart:html';
+
+import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'package:flutter/material.dart';
@@ -10,6 +13,8 @@ class BusinessCard extends StatefulWidget {
 class _BusinessCardState extends State<BusinessCard> {
   @override
   Widget build(BuildContext context) {
+    final String phone = '541-604-6275';
+
     return Scaffold(
       body: Center(
         child: Column(
@@ -23,15 +28,15 @@ class _BusinessCardState extends State<BusinessCard> {
             ),
             Text('Jacob Boyk', style: TextStyle(fontSize: 14, height: 2)),
             Text('Student', style: TextStyle(fontSize: 14, height: 2)),
-            Text('541-867-5309',
-                style: TextStyle(
-                    fontSize: 12, height: 2, fontWeight: FontWeight.bold)),
-            FlatButton(
-                child: new Text('github.com/boykj'),
-                onPressed: () => launch('https://github.com/boykj')),
-            FlatButton(
-                child: new Text('click me'),
-                onPressed: () => launch('https://google.com'))
+            InkWell(child: Text(phone), onTap: () => launch("sms:'$phone")),
+            Row(children: [
+              FlatButton(
+                  child: Text('github.com/boykj'),
+                  onPressed: () => launch('https://github.com/boykj')),
+              FlatButton(
+                  child: Text('boykj@oregonstate.edu'),
+                  onPressed: () => launch('https://gmail.com'))
+            ]),
           ],
         ),
       ),

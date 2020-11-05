@@ -12,7 +12,6 @@ class ResumeList extends StatelessWidget {
         Row(children: [
           Text('Hello there\t'),
           Text('General Kenobi'),
-          //Text('Look at this stuff here\n')
         ])
       ])),
     );
