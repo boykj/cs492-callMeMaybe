@@ -30,7 +30,7 @@ class _BusinessCardState extends State<BusinessCard> {
             Text('Jacob Boyk', style: TextStyle(fontSize: 14, height: 2)),
             Text('Student', style: TextStyle(fontSize: 14, height: 2)),
             InkWell(child: Text(phone), onTap: () => launch("sms:'$phone")),
-            Row(children: [
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
               FlatButton(
                   child: Text(github),
                   onPressed: () => launch('https://$github')),
