@@ -1,13 +1,13 @@
 /// Flutter code sample for TabController
 
 // This example shows how to listen to page updates in [TabBar] and [TabBarView]
-// when using [DefaultTabController].
-import 'dart:math';
-
+// when using [DefaultTabController].\
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/services.dart';
+
+import 'RandomResponseGenerator.dart';
+import 'businessCard.dart';
 
 void main() => runApp(MyApp());
 
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
                     fontFamily: 'Arial'),
                 headline6: TextStyle(
                     fontSize: 24, fontWeight: FontWeight.bold, height: 3))),
-        home: MyStatelessWidget());
+        home: DefaultLayout());
   }
 }
 
@@ -44,8 +44,8 @@ class MyApp extends StatelessWidget {
 //];
 
 /// This is the stateless widget that the main application instantiates.
-class MyStatelessWidget extends StatelessWidget {
-  MyStatelessWidget({Key key}) : super(key: key);
+class DefaultLayout extends StatelessWidget {
+  DefaultLayout({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -82,104 +82,6 @@ class MyStatelessWidget extends StatelessWidget {
           ),
         );
       }),
-    );
-  }
-}
-
-class BusinessCard extends StatefulWidget {
-  @override
-  _BusinessCardState createState() => _BusinessCardState();
-}
-
-class _BusinessCardState extends State<BusinessCard> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            Image(
-              width: 80,
-              height: 80,
-              image: NetworkImage(
-                  'https://www.pm10inc.com/wp-content/themes/micron/images/placeholders/placeholder_small_dark.jpg'),
-            ),
-            Text('Jacob Boyk', style: TextStyle(fontSize: 14, height: 2)),
-            Text('Student', style: TextStyle(fontSize: 14, height: 2)),
-            Text('541-867-5309',
-                style: TextStyle(
-                    fontSize: 12, height: 2, fontWeight: FontWeight.bold)),
-            FlatButton(
-                child: new Text('github.com/boykj'),
-                onPressed: () => launch('https://google.com')),
-          ],
-        ),
-      ),
-      //floatingActionButton: FloatingActionButton(
-      //  onPressed: _incrementCounter,
-      //  tooltip: 'Increment',
-      //  child: Icon(Icons.add),
-      //), // This trailing comma makes auto-formatting nicer for build methods.
-    );
-  }
-}
-
-class RandomResponseGenerator extends StatefulWidget {
-  @override
-  _RandomResponseState createState() => new _RandomResponseState();
-}
-
-class _RandomResponseState extends State<RandomResponseGenerator> {
-  String answerText = 'Hello there';
-  final List randomWords = [
-    'Definitely',
-    'Possibly',
-    'Perhaps',
-    'Unlikely',
-    'Probably not',
-    'Ehhh....'
-  ];
-
-  void _echoWords() {
-    setState(() {
-      var random = Random();
-      answerText = (randomWords[random.nextInt(randomWords.length)]);
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text('Call me, maybe?',
-                  style: Theme.of(context).textTheme.headline6),
-              RaisedButton(
-                  child: Text('Click me for an answer'),
-                  color: Colors.blue[200],
-                  onPressed: () => {_echoWords()}),
-              Text('$answerText', style: Theme.of(context).textTheme.headline6)
-            ]),
-      ),
     );
   }
 }
