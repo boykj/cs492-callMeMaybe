@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'businessCard.dart';
 import 'randomResponseGenerator.dart';
+import 'resumeList.dart';
 
 class DefaultLayout extends StatelessWidget {
   DefaultLayout({Key key}) : super(key: key);
@@ -11,15 +12,10 @@ class DefaultLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 3,
-      // The Builder widget is used to have a different BuildContext to access
-      // closest DefaultTabController.
       child: Builder(builder: (BuildContext context) {
         final TabController tabController = DefaultTabController.of(context);
         tabController.addListener(() {
-          if (!tabController.indexIsChanging) {
-            // Your code goes here.
-            // To get index of current tab use tabController.index
-          }
+          if (!tabController.indexIsChanging) {}
         });
         return Scaffold(
           appBar: AppBar(
@@ -34,11 +30,7 @@ class DefaultLayout extends StatelessWidget {
             ),
           ),
           body: TabBarView(
-            children: [
-              BusinessCard(),
-              Text('Tab 2'),
-              RandomResponseGenerator()
-            ],
+            children: [BusinessCard(), ResumeList(), RandomResponseGenerator()],
           ),
         );
       }),
