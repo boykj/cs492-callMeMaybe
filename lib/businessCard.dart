@@ -15,6 +15,7 @@ class _BusinessCardState extends State<BusinessCard> {
   Widget build(BuildContext context) {
     final String phone = '541-604-6275';
     final String email = 'boykj@oregonstateu.edu';
+    final String github = 'github.com/boykj';
     return Scaffold(
       body: Center(
         child: Column(
@@ -31,8 +32,8 @@ class _BusinessCardState extends State<BusinessCard> {
             InkWell(child: Text(phone), onTap: () => launch("sms:'$phone")),
             Row(children: [
               FlatButton(
-                  child: Text('github.com/boykj'),
-                  onPressed: () => launch('https://github.com/boykj')),
+                  child: Text(github),
+                  onPressed: () => launch('https://$github')),
               FlatButton(
                   child: Text(email), onPressed: () => launch("mailto:$email"))
             ]),
