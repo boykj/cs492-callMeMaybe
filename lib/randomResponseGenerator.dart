@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'package:flutter/material.dart';
 
@@ -34,10 +35,9 @@ class _RandomResponseState extends State<RandomResponseGenerator> {
             children: <Widget>[
               Text('Call me, maybe?',
                   style: Theme.of(context).textTheme.headline6),
-              RaisedButton(
+              InkWell(
                   child: Text('Click me for an answer'),
-                  color: Colors.blue[200],
-                  onPressed: () => {_echoWords()}),
+                  onTap: () => _echoWords()),
               Text('$answerText', style: Theme.of(context).textTheme.headline6)
             ]),
       ),
