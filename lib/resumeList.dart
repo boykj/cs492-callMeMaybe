@@ -1,17 +1,49 @@
 import 'package:flutter/material.dart';
+import 'GithubLink.dart';
 
-class ResumeList extends StatelessWidget {
+class ResumeList extends StatefulWidget {
   @override
-  ResumeList({Key key}) : super(key: key);
+  _ResumeListState createState() => _ResumeListState();
+}
 
+final headerTitle = 'Developer';
+final headerDetails = 'Something something developer at a marketing company';
+final headerExperience = '1 Year(s)';
+
+class _ResumeListState extends State<ResumeList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-        Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [Text('Hello'), Text('Sup dog')])
+      body: Column(children: [
+        titleBlock(context),
+        paddedTextBlock(headerTitle, headerDetails, headerExperience),
+        paddedTextBlock(headerTitle, headerDetails, headerExperience),
+        paddedTextBlock(headerTitle, headerDetails, headerExperience),
+        paddedTextBlock(headerTitle, headerDetails, headerExperience),
+        paddedTextBlock(headerTitle, headerDetails, headerExperience),
+        paddedTextBlock(headerTitle, headerDetails, headerExperience)
       ]),
     );
   }
+}
+
+Widget paddedTextBlock(title, details, experience) {
+  return Padding(
+      padding: EdgeInsets.all(10),
+      child: Column(children: [
+        Text(title, style: TextStyle(fontSize: 16)),
+        Text(details),
+        Text(experience)
+      ]));
+}
+
+Widget titleBlock(context) {
+  return Padding(
+      padding: EdgeInsets.all(3),
+      child: Column(children: [
+        Text('Jacob Boyk',
+            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
+        Text('github'),
+        Text('email')
+      ]));
 }
