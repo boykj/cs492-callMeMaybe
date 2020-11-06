@@ -2,7 +2,7 @@ import 'package:callMeMaybe/businessCard.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-final githubTitle = 'github.com/boyk';
+final githubTitle = 'github.com/boykj';
 
 class GithubLink extends StatelessWidget {
   const GithubLink({Key key}) : super(key: key);

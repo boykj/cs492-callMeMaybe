@@ -19,7 +19,7 @@ class DefaultLayout extends StatelessWidget {
         });
         return Scaffold(
           appBar: AppBar(
-            title: Text('Hello worlds', textAlign: TextAlign.center),
+            title: Center(child: Text('Hello worlds')),
             bottom: TabBar(
               indicatorColor: Colors.black,
               tabs: [
