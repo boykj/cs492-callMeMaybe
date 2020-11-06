@@ -1,5 +1,4 @@
 import 'dart:math';
-import 'package:url_launcher/url_launcher.dart';
 
 import 'package:flutter/material.dart';
 
@@ -21,8 +20,9 @@ class _RandomResponseState extends State<RandomResponseGenerator> {
 
   void _echoWords() {
     setState(() {
+      final length = randomWords.length;
       var random = Random();
-      answerText = (randomWords[random.nextInt(randomWords.length)]);
+      answerText = (randomWords[random.nextInt(length)]);
     });
   }
 

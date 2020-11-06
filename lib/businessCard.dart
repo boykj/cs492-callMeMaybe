@@ -20,12 +20,7 @@ class _BusinessCardState extends State<BusinessCard> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Image(
-              width: 80,
-              height: 80,
-              image: NetworkImage(
-                  'https://www.pm10inc.com/wp-content/themes/micron/images/placeholders/placeholder_small_dark.jpg'),
-            ),
+            paddedImage(),
             Text('Jacob Boyk', style: TextStyle(fontSize: 14, height: 2)),
             Text('Student', style: TextStyle(fontSize: 14, height: 2)),
             InkWell(child: Text(phone), onTap: () => launch("sms:'$phone")),
@@ -41,4 +36,11 @@ class _BusinessCardState extends State<BusinessCard> {
       ),
     );
   }
+}
+
+Widget paddedImage() {
+  return Padding(
+      padding: EdgeInsets.all(20),
+      child: SizedBox(
+          child: Image.asset('assets/260546.jpg'), width: 100, height: 100));
 }

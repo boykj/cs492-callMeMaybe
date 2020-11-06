@@ -7,13 +7,11 @@ class ResumeList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-          child: Column(children: <Widget>[
-        Row(children: [
-          Text('Hello there\t'),
-          Text('General Kenobi'),
-        ])
-      ])),
+      body: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+        Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [Text('Hello'), Text('Sup dog')])
+      ]),
     );
   }
 }
