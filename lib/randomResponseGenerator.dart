@@ -34,11 +34,11 @@ class _RandomResponseState extends State<RandomResponseGenerator> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text('Call me, maybe?',
-                  style: Theme.of(context).textTheme.headline6),
+                  style: Theme.of(context).textTheme.headline5),
               InkWell(
                   child: Text('Click me for an answer'),
                   onTap: () => _echoWords()),
-              Text('$answerText', style: Theme.of(context).textTheme.headline6)
+              Text('$answerText', style: Theme.of(context).textTheme.headline5)
             ]),
       ),
     );

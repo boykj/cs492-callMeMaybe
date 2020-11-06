@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'githubLink.dart';
 import 'emailLink.dart';
 
@@ -8,14 +7,13 @@ class ResumeList extends StatefulWidget {
   _ResumeListState createState() => _ResumeListState();
 }
 
-final headerTitle = 'Mazama Media - Developer';
-final headerDetails = 'Something something developer at a marketing company';
-final headerExperience = '1 Year(s)';
-
-List resumeListing = [
-  paddedTextBlock(headerTitle, headerDetails, headerExperience),
-  paddedTextBlock(headerTitle, headerDetails, headerExperience)
-];
+final headerTitle = 'Developer';
+final headerDetails = 'Mazama Media';
+final experienceTime = '2019 - Present';
+final location = 'Bend, OR';
+final headerExperience =
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum';
+final resumeVariable = 8;
 
 class _ResumeListState extends State<ResumeList> {
   @override
@@ -23,39 +21,52 @@ class _ResumeListState extends State<ResumeList> {
     return Scaffold(
         body: SingleChildScrollView(
       child: Column(children: [
-        titleBlock(context),
-        paddedTextBlock(headerTitle, headerDetails, headerExperience),
-        paddedTextBlock(headerTitle, headerDetails, headerExperience),
-        paddedTextBlock(headerTitle, headerDetails, headerExperience),
-        paddedTextBlock(headerTitle, headerDetails, headerExperience),
-        paddedTextBlock(headerTitle, headerDetails, headerExperience),
-        paddedTextBlock(headerTitle, headerDetails, headerExperience),
-        paddedTextBlock(headerTitle, headerDetails, headerExperience),
-        paddedTextBlock(headerTitle, headerDetails, headerExperience),
-        paddedTextBlock(headerTitle, headerDetails, headerExperience)
+        titleBlock(),
+        paddedTextBlock(),
+        paddedTextBlock(),
+        paddedTextBlock(),
+        paddedTextBlock(),
+        paddedTextBlock(),
+        paddedTextBlock(),
+        paddedTextBlock(),
+        paddedTextBlock()
       ]),
     ));
   }
 }
 
-Widget paddedTextBlock(title, details, experience) {
+Widget paddedTextBlock() {
   return Padding(
       padding: EdgeInsets.all(10),
       child: Column(children: [
-        Text(title,
-            style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
-        Text(details, style: TextStyle(fontSize: 12)),
-        Text(experience, style: TextStyle(fontSize: 12))
+        Row(children: [
+          Text(headerTitle,
+              style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold))
+        ]),
+        Wrap(
+            alignment: WrapAlignment.end,
+            spacing: 50.0,
+            runSpacing: 30.0,
+            children: [
+              Text(headerDetails, style: TextStyle(fontSize: 12)),
+              Text(experienceTime, style: TextStyle(fontSize: 12)),
+              Text(location, style: TextStyle(fontSize: 12))
+            ]),
+        Wrap(children: [
+          Text(headerExperience, style: TextStyle(fontSize: 10)),
+        ])
       ]));
 }
 
-Widget titleBlock(context) {
+Widget titleBlock() {
   return Padding(
-      padding: EdgeInsets.all(3),
+      padding: EdgeInsets.all(10),
       child: Column(children: [
-        Text('Jacob Boyk',
-            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
-        InkWell(child: GithubLink()),
-        InkWell(child: EmailLink())
+        Row(children: [
+          Text('Jacob Boyk',
+              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold))
+        ]),
+        Row(children: [InkWell(child: EmailLink())]),
+        Row(children: [InkWell(child: GithubLink())])
       ]));
 }

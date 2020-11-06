@@ -15,7 +15,9 @@ class MyApp extends StatelessWidget {
                 headline5: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
-                    fontFamily: 'Oswald'),
+                    fontFamily: 'Oswald',
+                    height: 3,
+                    color: Colors.grey),
                 headline6: TextStyle(
                     fontSize: 24, fontWeight: FontWeight.bold, height: 3))),
         home: DefaultLayout());

@@ -11,14 +11,12 @@ class BusinessCard extends StatefulWidget {
 }
 
 final String phone = '541-604-6275';
-final String email = 'boykj@oregonstateu.edu';
-final String github = 'github.com/boykj';
 
 class _BusinessCardState extends State<BusinessCard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
@@ -26,10 +24,7 @@ class _BusinessCardState extends State<BusinessCard> {
             headerBlock(),
             Text('Student', style: TextStyle(fontSize: 14, height: 2)),
             InkWell(child: Text(phone), onTap: () => launch("sms:'$phone")),
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              FlatButton(child: GithubLink()),
-              FlatButton(child: EmailLink())
-            ]),
+            paddedLinkRow()
           ],
         ),
       ),
@@ -47,4 +42,14 @@ Widget paddedImage() {
 Widget headerBlock() {
   return Text('Jacob Boyk',
       style: TextStyle(fontSize: 18, height: 2, fontWeight: FontWeight.bold));
+}
+
+Widget paddedLinkRow() {
+  return Padding(
+      padding: EdgeInsets.all(20),
+      child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+        Container(child: GithubLink()),
+        Text('      '),
+        Container(child: EmailLink())
+      ]));
 }
