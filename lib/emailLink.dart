@@ -8,7 +8,6 @@ class EmailLink extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
-        child: Text(email), onPressed: () => launch("mailto:$email"));
+    return InkWell(child: Text(email), onTap: () => launch("mailto:$email"));
   }
 }

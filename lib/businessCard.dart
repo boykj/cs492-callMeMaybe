@@ -26,9 +26,10 @@ class _BusinessCardState extends State<BusinessCard> {
             headerBlock(),
             Text('Student', style: TextStyle(fontSize: 14, height: 2)),
             InkWell(child: Text(phone), onTap: () => launch("sms:'$phone")),
-            Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [GithubLink(), EmailLink()]),
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              FlatButton(child: GithubLink()),
+              FlatButton(child: EmailLink())
+            ]),
           ],
         ),
       ),

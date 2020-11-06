@@ -9,12 +9,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         theme: ThemeData(
+            fontFamily: 'Georgia',
             primaryColor: Colors.blueGrey,
             textTheme: TextTheme(
                 headline5: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
-                    fontFamily: 'Arial'),
+                    fontFamily: 'Oswald'),
                 headline6: TextStyle(
                     fontSize: 24, fontWeight: FontWeight.bold, height: 3))),
         home: DefaultLayout());

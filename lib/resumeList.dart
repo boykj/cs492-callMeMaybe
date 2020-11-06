@@ -8,16 +8,25 @@ class ResumeList extends StatefulWidget {
   _ResumeListState createState() => _ResumeListState();
 }
 
-final headerTitle = 'Developer';
+final headerTitle = 'Mazama Media - Developer';
 final headerDetails = 'Something something developer at a marketing company';
 final headerExperience = '1 Year(s)';
+
+List resumeListing = [
+  paddedTextBlock(headerTitle, headerDetails, headerExperience),
+  paddedTextBlock(headerTitle, headerDetails, headerExperience)
+];
 
 class _ResumeListState extends State<ResumeList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(children: [
+        body: SingleChildScrollView(
+      child: Column(children: [
         titleBlock(context),
+        paddedTextBlock(headerTitle, headerDetails, headerExperience),
+        paddedTextBlock(headerTitle, headerDetails, headerExperience),
+        paddedTextBlock(headerTitle, headerDetails, headerExperience),
         paddedTextBlock(headerTitle, headerDetails, headerExperience),
         paddedTextBlock(headerTitle, headerDetails, headerExperience),
         paddedTextBlock(headerTitle, headerDetails, headerExperience),
@@ -25,7 +34,7 @@ class _ResumeListState extends State<ResumeList> {
         paddedTextBlock(headerTitle, headerDetails, headerExperience),
         paddedTextBlock(headerTitle, headerDetails, headerExperience)
       ]),
-    );
+    ));
   }
 }
 
@@ -33,9 +42,10 @@ Widget paddedTextBlock(title, details, experience) {
   return Padding(
       padding: EdgeInsets.all(10),
       child: Column(children: [
-        Text(title, style: TextStyle(fontSize: 16)),
-        Text(details),
-        Text(experience)
+        Text(title,
+            style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
+        Text(details, style: TextStyle(fontSize: 12)),
+        Text(experience, style: TextStyle(fontSize: 12))
       ]));
 }
 
@@ -46,6 +56,6 @@ Widget titleBlock(context) {
         Text('Jacob Boyk',
             style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
         InkWell(child: GithubLink()),
-        InkWell(child: Text(email), onTap: () => launch("mailto:$email"))
+        InkWell(child: EmailLink())
       ]));
 }
