@@ -8,6 +8,8 @@ import 'resumeList.dart';
 class DefaultLayout extends StatelessWidget {
   DefaultLayout({Key key}) : super(key: key);
 
+  final title = 'Call Me Maybe';
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -19,11 +21,11 @@ class DefaultLayout extends StatelessWidget {
         });
         return Scaffold(
           appBar: AppBar(
-            title: Center(child: Text('Hello worlds')),
+            title: Center(child: Text(title)),
             bottom: TabBar(
               indicatorColor: Colors.black,
               tabs: [
-                Tab(icon: Icon(Icons.local_atm)),
+                Tab(icon: Icon(Icons.account_circle)),
                 Tab(icon: Icon(Icons.contact_page)),
                 Tab(icon: Icon(Icons.help))
               ],
