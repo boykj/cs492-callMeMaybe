@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'businessCard.dart';
 import 'GithubLink.dart';
 
 class ResumeList extends StatefulWidget {
@@ -43,7 +45,10 @@ Widget titleBlock(context) {
       child: Column(children: [
         Text('Jacob Boyk',
             style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
-        Text('github'),
-        Text('email')
+        InkWell(child: GithubLink()),
+        InkWell(
+            child: Text(github),
+            onTap: () => launch('https://github.com/boykj')),
+        InkWell(child: Text(email), onTap: () => launch("mailto:$email"))
       ]));
 }

@@ -1,16 +1,16 @@
+import 'package:callMeMaybe/businessCard.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class GithubLink extends StatefulWidget {
-  @override
-  _GithubLinkState createState() => new _GithubLinkState();
-}
+final githubTitle = 'github.com/boyk';
 
-class _GithubLinkState extends State<GithubLink> {
+class GithubLink extends StatelessWidget {
+  const GithubLink({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return FlatButton(
-        child: Text('github.com/boykj'),
-        onPressed: () => launch('https://github.com/boykj'));
+        child: Text(githubTitle),
+        onPressed: () => launch('https://$githubTitle'));
   }
 }

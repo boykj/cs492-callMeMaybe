@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class EmailLink extends StatefulWidget {
-  @override
-  _EmailLinkState createState() => new _EmailLinkState();
-}
+final email = 'boykj@oregonstate.edu';
 
-class _EmailLinkState extends State<EmailLink> {
+class EmailLink extends StatelessWidget {
+  const EmailLink({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return FlatButton(
-        child: Text('github.com/boykj'),
-        onPressed: () => launch('https://github.com/boykj'));
+        child: Text(email), onPressed: () => launch("mailto:$email"));
   }
 }

@@ -10,12 +10,13 @@ class BusinessCard extends StatefulWidget {
   _BusinessCardState createState() => _BusinessCardState();
 }
 
+final String phone = '541-604-6275';
+final String email = 'boykj@oregonstateu.edu';
+final String github = 'github.com/boykj';
+
 class _BusinessCardState extends State<BusinessCard> {
   @override
   Widget build(BuildContext context) {
-    final String phone = '541-604-6275';
-    final String email = 'boykj@oregonstateu.edu';
-    final String github = 'github.com/boykj';
     return Scaffold(
       body: Center(
         child: Column(
@@ -25,10 +26,9 @@ class _BusinessCardState extends State<BusinessCard> {
             headerBlock(),
             Text('Student', style: TextStyle(fontSize: 14, height: 2)),
             InkWell(child: Text(phone), onTap: () => launch("sms:'$phone")),
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              FlatButton(child: Text(github), onPressed: () => GithubLink()),
-              FlatButton(child: Text(email), onPressed: () => EmailLink())
-            ]),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [GithubLink(), EmailLink()]),
           ],
         ),
       ),
